@@ -4,11 +4,18 @@ document.addEventListener("DOMContentLoaded", () => {
     feedbackForm.addEventListener("submit", (e) => {
       e.preventDefault();
       alert("Форма обратной связи отправлена!");
-      feedbackForm.reset(); // очистка формы
+      feedbackForm.reset();
     });
   }
 
   const signupForm = document.getElementById("signup-form");
+  const dateInput = document.getElementById("training-date");
+
+  if (dateInput) {
+    const today = new Date().toISOString().split("T")[0];
+    dateInput.setAttribute("min", today);
+  }
+
   if (signupForm) {
     signupForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -18,7 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (input.name) data[input.name] = input.value;
       });
       localStorage.setItem("lastSignup", JSON.stringify(data));
-      document.getElementById("confirmation").textContent = "Вы успешно записались!";
+      document.getElementById("confirmation").innerHTML = "<strong>Вы успешно записались!</strong>";
+      signupForm.reset();
     });
   }
 });
