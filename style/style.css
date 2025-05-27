@@ -6,6 +6,7 @@ html, body {
 
 main {
   flex: 1 0 auto;
+  padding: 9em 2em 2em;
 }
 
 body {
@@ -14,6 +15,10 @@ body {
   padding: 0;
   background-color: #f4f4f4;
   color: #333;
+}
+
+body.signup main {
+  padding-top: 11em; 
 }
 
 footer {
@@ -51,9 +56,6 @@ nav a.active {
   font-weight: 800;
 }
 
-main {
-  padding: 9em 2em 2em;
-}
 form {
   display: flex;
   flex-direction: column;
@@ -261,4 +263,103 @@ ul {
 
 .benefit-card p {
   font-weight: 500;
+}
+
+#confirmation {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.confirmation-box {
+  text-align: left;
+  line-height: 1.6;
+}
+
+@media (max-width: 1200px) {
+  .hero-overlay {
+    padding: 10em 2em;
+    margin-top: 3em;
+  }
+
+  .benefit-card img {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero {
+    height: 600px;
+     margin-top: 130px;
+  }
+
+  .hero-overlay {
+    padding: 6em 2em;
+    margin-top: 2em;
+  }
+
+  nav a {
+    margin: 0 5px;
+  }
+
+  .benefit-card img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .training-card {
+    width: 180px;
+  }
+
+  .review-card {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 7em 1em 2em;
+  }
+
+  .hero {
+    height: 500px;
+     margin-top: 130px;
+  }
+
+  .hero-overlay {
+    padding: 3em 1em;
+    margin-top: 1em;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 0.9em;
+  }
+
+  .benefit-card img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .training-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .review-card {
+    max-width: 100%;
+    margin: 0 1em;
+  }
+
+  form {
+    width: 100%;
+    padding: 0 1em;
+    box-sizing: border-box;
+  }
+
+  .mission, .benefits {
+    margin: 2em 1em;
+  }
 }
