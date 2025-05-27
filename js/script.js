@@ -3,7 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (feedbackForm) {
     feedbackForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      alert("Форма обратной связи отправлена!");
+      const name = feedbackForm.querySelector('input[type="text"]').value;
+      const email = feedbackForm.querySelector('input[type="email"]').value;
+      const message = feedbackForm.querySelector('textarea').value;
+
+      alert(`Форма отправлена!\n\nОтправленные данные: \nИмя: ${name}\nEmail: ${email}\nВопрос: ${message}`);
       feedbackForm.reset();
     });
   }
@@ -18,15 +22,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (signupForm) {
     signupForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const inputs = signupForm.querySelectorAll("input, select");
-      const data = {};
-      inputs.forEach(input => {
-        if (input.name) data[input.name] = input.value;
-      });
-      localStorage.setItem("lastSignup", JSON.stringify(data));
-      document.getElementById("confirmation").innerHTML = "<strong>Вы успешно записались!</strong>";
-      signupForm.reset();
-    });
+  e.preventDefault();
+
+  const name = signupForm.querySelector('input[name="name"]').value;
+  const email = signupForm.querySelector('input[name="email"]').value;
+  const trainingValue = signupForm.querySelector('select[name="training"]').value;
+  const date = signupForm.querySelector('input[name="date"]').value;
+
+  const trainingLabels = {
+    yoga: "Йога",
+    boxing: "Бокс",
+    crossfit: "Кроссфит",
+    cardio: "Кардио",
+    strength: "Силовая тренировка"
+  };
+
+  const training = trainingLabels[trainingValue] || trainingValue;
+
+  localStorage.setItem("lastSignup", JSON.stringify({ name, email, training, date }));
+
+ document.querySelector(".confirmation-box").innerHTML = `
+  <strong>Вы успешно записались!</strong><br><br>
+  Данные записи:<br>
+  Имя: ${name}<br>
+  Email: ${email}<br>
+  Тренировка: ${training}<br>
+  Дата: ${date}`;
+
+  signupForm.reset();
+});
+
   }
 });
