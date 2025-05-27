@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style/style.css" />
 </head>
-<body>
+<body class="signup">
   <header>
     <h1>Запись на тренировку</h1>
     <nav>
@@ -29,12 +29,15 @@
           <option value="boxing">Бокс</option>
           <option value="crossfit">Кроссфит</option>
           <option value="cardio">Кардио</option>
-          <option value="cardio">Силовая тренировка</option>
+          <option value="strength">Силовая тренировка</option>
         </select>
         <input name="date" type="date" id="training-date" required />
         <button type="submit">Записаться</button>
       </form>
-      <div id="confirmation"></div>
+      <div id="confirmation">
+  <div class="confirmation-box"></div>
+</div>
+
     </section>
     <section>
       <div class="record">
